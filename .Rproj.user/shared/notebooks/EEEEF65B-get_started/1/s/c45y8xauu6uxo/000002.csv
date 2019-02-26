@@ -1,0 +1,12 @@
+"0","library(breakaway)
+"
+"2","
+Attaching package: ‘breakaway’
+
+"
+"2","The following objects are masked from ‘package:CatchAll’:
+
+    alpha_estimate, chao1, convert, wlrm_transformed,
+    wlrm_untransformed
+
+"
