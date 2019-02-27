@@ -5,6 +5,7 @@
 #' @param input_data An input type that can be processed by \code{convert()}
 #' @param ... Other arguments for \code{select_best_models}
 #'
+#' @import dplyr
 #' @examples
 #' library(breakaway)
 #' data(apples)
@@ -13,6 +14,7 @@
 #' @export
 catch_all <- function(input_data, ...) {
 
+  param_tab <- select_best_models(input_data, ...)
   ## chao1
   chao1_result <- try(chao1(input_data), silent = T)
   if (class(chao1_result)[1] !="try-error") {
@@ -60,12 +62,13 @@ catch_all <- function(input_data, ...) {
                        SE = NA, AICc = NA, GOF0 = NA, GOF5 = NA,
                        LwrCB = NA, UprCB = NA)
   }
-  param_tab <- select_best_models(input_data, ...)
 
-  suppressWarnings( res_tab <- bind_rows(param_tab$BestModels %>% filter(!is.na(Est)),
+
+  suppressWarnings( res_tab <- bind_rows(param_tab$BestModels %>% dplyr::filter(!is.na(Est)),
                                          chao1_tab,
                                          wlrm_tab,
-                                         logwlrm_tab))
+                                         logwlrm_tab,
+                                         kemp_tab))
 
   return(res_tab)
 }

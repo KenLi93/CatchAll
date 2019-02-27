@@ -16,7 +16,8 @@
 #' @return A data frame displaying the point estimates, standard errors, AICc, GOF0 and GOF5 for different
 #' parametric models and cutoffs.
 #'
-#' @export
+#' @import dplyr
+#'
 #'
 #' @examples
 #' library(breakaway)
@@ -45,6 +46,7 @@ all_parametric_model <- function(input_data,
                         "three_mixed_exp_EM", "ii"))
 
     all_results <- mclapply(tau_range[1]:tau_range[2], function (tau) {
+      cat(".")
       poisson_tau <- Poisson_model(input_data, cutoff = tau)
       geometric_tau <- geometric_model(input_data, cutoff = tau)
       two_mixed_geom_tau <- two_geometric_model(input_data, cutoff = tau)
@@ -65,7 +67,8 @@ all_parametric_model <- function(input_data,
 
     stopCluster(cl)
   } else{
-    all_results <- lapply(ii[3:max(length(ii) - 3, 10)], function (tau) {
+    all_results <- lapply(tau_range[1]:tau_range[2], function (tau) {
+      cat(".")
       poisson_tau <- Poisson_model(input_data, cutoff = tau)
       geometric_tau <- geometric_model(input_data, cutoff = tau)
       two_mixed_geom_tau <- two_geometric_model(input_data, cutoff = tau)
@@ -131,7 +134,7 @@ select_best_models <- function(input_data,
   ii <- input_data$index
   input_data <- convert(input_data)
 
-  all_results_tib <- all_parametric_model(input_data, parallel = parallel, control = control) %>%
+  all_results_tib <- all_parametric_model(input_data, parallel = parallel, tau_range = tau_range, control = control) %>%
     .[complete.cases(.),]
   ## For each cutoff, evaluate all the models
   # all_results <- lapply(ii[3:max(length(ii) - 3, 10)], function (tau) {
@@ -177,7 +180,7 @@ select_best_models <- function(input_data,
     ## In this scenario, we return 4 models with best AICc and GOF5
     bestModels <- all_results_tib %>%
       group_by(tau) %>%
-      filter(AICc == min(AICc)) %>%
+      dplyr::filter(AICc == min(AICc)) %>%
       arrange(desc(GOF5)) %>%
       .[1:4,]
 
@@ -188,27 +191,27 @@ select_best_models <- function(input_data,
     ## relaxed criteria
     ## Model 2A is the model with the greatest GOF0
     bestModels <- all_results_tib %>%
-      filter(GOF5 > 0.01) %>%
+      dplyr::filter(GOF5 > 0.01) %>%
       group_by(tau) %>%
-      filter(AICc == min(AICc)) %>%
+      dplyr::filter(AICc == min(AICc)) %>%
       group_by()
 
     bestModel1 <- tibble(Description = "Best Model 1", tau = NA, Model = NA, Est = NA, SE = NA, AICc = NA)
 
     bestModel2A <- bestModels %>%
-      filter(GOF0 == max(GOF0)) %>%
+      dplyr::filter(GOF0 == max(GOF0)) %>%
       bind_cols(tibble(Description = c("Best Model 2A")),
                 .)
 
     bestModel2B <- bestModels %>%
-      filter(tau == max(tau))%>%
+      dplyr::filter(tau == max(tau))%>%
       bind_cols(tibble(Description = c("Best Model 2B")),
                 .)
 
     if (any(bestModels$tau <= 10)) {
       bestModel2C <- bestModels %>%
-        filter(tau <= 10) %>%
-        filter(tau == max(tau)) %>%
+        dplyr::filter(tau <= 10) %>%
+        dplyr::filter(tau == max(tau)) %>%
         bind_cols(tibble(Description = c("Best Model 2C")),
                   .)
     } else {
@@ -225,30 +228,30 @@ select_best_models <- function(input_data,
     ## We adopt the most stringent criteria
 
     bestModels <- all_results_tib %>%
-      filter(GOF5 > 0.01) %>%
+      dplyr::filter(GOF5 > 0.01) %>%
       group_by(tau) %>%
-      filter(AICc == min(AICc))
+      dplyr::filter(AICc == min(AICc))
 
     bestModel1 <- bestModels %>%
-      filter(GOF0 > 0.01) %>%
-      filter(tau == max(tau)) %>%
+      dplyr::filter(GOF0 > 0.01) %>%
+      dplyr::filter(tau == max(tau)) %>%
       bind_cols(tibble(Description = c("Best Model 1")),
                 .)
 
 
     bestModel2A <- bestModels %>%
-      filter(GOF0 == max(GOF0)) %>%
+      dplyr::filter(GOF0 == max(GOF0)) %>%
       bind_cols(tibble(Description = c("Best Model 2A")),
                 .)
 
     bestModel2B <- bestModels %>%
-      filter(tau == max(tau))%>%
+      dplyr::filter(tau == max(tau))%>%
       bind_cols(tibble(Description = c("Best Model 2B")),
                 .)
 
     bestModel2C <- bestModels %>%
-      filter(tau <= 10) %>%
-      filter(tau == max(tau)) %>%
+      dplyr::filter(tau <= 10) %>%
+      dplyr::filter(tau == max(tau)) %>%
       bind_cols(tibble(Description = c("Best Model 2C")),
                 .)
 
@@ -290,7 +293,7 @@ best_model <- function(input_data, alpha_estimate = T, ...) {
   best_models <- select_best_models(input_data, ...)
 
   bob <- best_models$BestModels %>%
-    filter(., complete.cases(.)) %>%
+    dplyr::filter(., complete.cases(.)) %>%
     .[1, ]
 
   if(alpha_estimate == T) {

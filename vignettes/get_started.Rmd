@@ -13,7 +13,7 @@ knitr::opts_chunk$set(echo = TRUE, warning = FALSE)
 ```
 
 
-This package contains functions that estimate the species richness with finite exponential-mixed Poisson models (up to the three-component exponential mixed-Poisson model).
+This package contains functions that estimate the species richness with finite exponential-mixed Poisson models (up to the three-component exponential mixed-Poisson model) and other state-of-art species richness estimators.
 ## Installation ##
 
 
@@ -45,6 +45,9 @@ geometric_model(apples, cutoff = 20)
 Two- or three-component exponential mixture mixed Poisson model:
 ```{r}
 two_geometric_model(apples, cutoff = 50)
+```
+
+```{r}
 three_geometric_model(apples, cutoff = 70)
 ```
 
@@ -56,9 +59,10 @@ apples_results <- all_parametric_model(apples)
 head(apples_results, 10)
 ```
 
-We provide a model selection procedure that selects the "best" model among the above in terms of model fit.
+The richness estimates in CatchAll are displayed as follows:
+
 ```{r}
-apples_best_models <- select_best_models(apples)
-apples_best_models$BestModels
+apples_best_models <- catch_all(apples)
+apples_best_models
 ```
 

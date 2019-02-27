@@ -1,0 +1,6 @@
+library(CatchAll)
+library(breakaway)
+
+data(apples)
+
+t1 <- system.time(apple_results <- catch_all(apples))

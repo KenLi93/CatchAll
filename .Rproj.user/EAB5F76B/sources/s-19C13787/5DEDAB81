@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1551247975209.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "258747149",
+    "id" : "5DEDAB81",
+    "lastKnownWriteTime" : 1551248002,
+    "last_content_update" : 1551248002725,
+    "path" : "P:/git/CatchAll/R/basic_models.R",
+    "project_path" : "R/basic_models.R",
+    "properties" : {
+        "cursorPosition" : "51,2",
+        "scrollLine" : "44"
+    },
+    "relative_order" : 7,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

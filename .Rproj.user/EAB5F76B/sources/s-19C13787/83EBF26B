@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1551243499122.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "727023928",
+    "id" : "83EBF26B",
+    "lastKnownWriteTime" : 1551248245,
+    "last_content_update" : 1551248245088,
+    "path" : "//fs2-vip-nfs.nfs.biost.priv/students/qijunl2/Desktop/apple_analysis.R",
+    "project_path" : null,
+    "properties" : {
+        "cursorPosition" : "6,0",
+        "scrollLine" : "0",
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 6,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

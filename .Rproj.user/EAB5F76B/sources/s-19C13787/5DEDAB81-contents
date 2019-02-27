@@ -8,7 +8,6 @@
 #'
 #' @return a list containing the Goodness-of-fit statistic (GOF) and degree of freedom (df).
 #'
-#' @importFrom breakaway convert alpha_estimate
 #' @export
 #'
 GOF <- function(O_c, E_c, param, bin.tol = 0) {
@@ -51,7 +50,6 @@ GOF <- function(O_c, E_c, param, bin.tol = 0) {
 #'
 #' @return An object of class \code{alpha_estimate}
 #'
-#' @importFrom breakaway convert alpha_estimate
 #' @export
 #'
 #' @examples
@@ -141,8 +139,6 @@ geometric_model <- function(input_data, cutoff = 10) {
 #' @param cutoff Maximal frequency count of the data used to estimating the species richness. Default 10.
 #'
 #' @return An object of class \code{alpha_estimate}
-#'
-#' @importFrom breakaway convert alpha_estimate
 #' @export
 #'
 #' @examples
