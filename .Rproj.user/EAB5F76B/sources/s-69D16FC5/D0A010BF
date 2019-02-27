@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1551222601639.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "D0A010BF",
+    "lastKnownWriteTime" : 1551125637,
+    "last_content_update" : 1551125637,
+    "path" : "P:/git/CatchAll/R/two_mixed_exp.R",
+    "project_path" : "R/two_mixed_exp.R",
+    "properties" : {
+        "cursorPosition" : "24,53",
+        "scrollLine" : "44"
+    },
+    "relative_order" : 5,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

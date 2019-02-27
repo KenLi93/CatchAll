@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1551224355447.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "76F0672E",
+    "lastKnownWriteTime" : 1551235785,
+    "last_content_update" : 1551235785262,
+    "path" : "P:/git/CatchAll/R/select_parametric_model.R",
+    "project_path" : "R/select_parametric_model.R",
+    "properties" : {
+        "cursorPosition" : "292,10",
+        "scrollLine" : "285"
+    },
+    "relative_order" : 8,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

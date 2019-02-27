@@ -8,8 +8,8 @@ vignette: >
   %\VignetteEncoding[utf8]{inputenc}
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+```{r setup, include=FALSE, cache=TRUE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE)
 ```
 
 
@@ -45,7 +45,7 @@ geometric_model(apples, cutoff = 20)
 Two- or three-component exponential mixture mixed Poisson model:
 ```{r}
 two_geometric_model(apples, cutoff = 50)
-three_geometric_model(apples, cutoff = 50)
+three_geometric_model(apples, cutoff = 70)
 ```
 
 An integrated function for simultaneously viewing the results of all 
@@ -53,5 +53,12 @@ above models for different cut-off of species frequency counts.
 
 ```{r} 
 apples_results <- all_parametric_model(apples)
-head(apples_results, 20)
+head(apples_results, 10)
 ```
+
+We provide a model selection procedure that selects the "best" model among the above in terms of model fit.
+```{r}
+apples_best_models <- select_best_models(apples)
+apples_best_models$BestModels
+```
+

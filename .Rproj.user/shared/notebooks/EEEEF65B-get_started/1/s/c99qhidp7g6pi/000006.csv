@@ -1,7 +1,0 @@
-"0","Poisson_model(apples, cutoff = 20)
-"
-"1","Estimate of  from method Poisson Model:
-"
-"2","Error in round(x$estimate, ifelse(x$estimand == ""richness"", 0, 2)) : 
-  invalid second argument of length 0
-"

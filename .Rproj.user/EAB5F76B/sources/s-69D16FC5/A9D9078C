@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1551230491490.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "A9D9078C",
+    "lastKnownWriteTime" : 1551237100,
+    "last_content_update" : 1551237100876,
+    "path" : "P:/git/CatchAll/R/catch_all_main.R",
+    "project_path" : "R/catch_all_main.R",
+    "properties" : {
+        "cursorPosition" : "46,2",
+        "scrollLine" : "39",
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 8,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
