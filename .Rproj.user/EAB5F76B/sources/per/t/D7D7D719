@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1551833283132.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3276059064",
+    "id" : "D7D7D719",
+    "lastKnownWriteTime" : 1551833359,
+    "last_content_update" : 1551833359708,
+    "path" : "P:/git/CatchAll/tests/testthat/test_best_models.R",
+    "project_path" : "tests/testthat/test_best_models.R",
+    "properties" : {
+        "cursorPosition" : "3,33",
+        "scrollLine" : "0",
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 8,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

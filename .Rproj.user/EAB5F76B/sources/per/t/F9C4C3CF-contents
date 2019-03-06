@@ -1,0 +1,58 @@
+setwd("//fs2-vip-nfs.nfs.biost.priv/students/qijunl2/Documents/UW/Winter-2019/BIOST531/HW/HW3")
+
+gen_mixed_type_data_one <- function(nn, z2_scenario, y_scenario) {
+  ## simulate study variables
+  Z1 <- rnorm(nn, 0, sqrt(2))
+  
+  if (z2_scenario == 1) {
+    Z2 <- rbinom(nn, 1, 0.5)
+  } else {
+    Z2 <- (runif(nn) < 0.7) * (Z1 > 0) + (runif(nn) < 0.3) * (Z1 <= 0)
+  }
+  
+  Z3 <- sample(1:4, nn, replace = T)
+  
+  if (y_scenario == "A") {
+    Y <- rnorm(nn, mean = 2 * Z1 + 5 * Z2 + 2 * Z3, sd = sqrt(0.5))
+  } else {
+    Y <- rnorm(nn, mean = 5 * Z2 + 2 * Z3, sd = sqrt(0.5))
+  }
+  
+  ## simulate response variables
+  R1 <- rbinom(nn, 1, 0.7)
+  
+  R2 <- 1:nn * 0
+  for(i in 1:nn) {
+    R2[i] <- rbinom(1, 1, prob = 0.9 * R1[i] + 0.8 * (1 - R1[i])) 
+  }
+  
+  R3 <- rbinom(nn, 1, 0.8)
+  
+  ## generate observed data
+  Z1[!as.logical(R1)] <- NA
+  Z2[!as.logical(R2)] <- NA
+  Z3[!as.logical(R3)] <- NA
+  
+  dat <- data.frame(Z1 = Z1, Z2 = Z2, Z3 = Z3, Y = Y)
+  dat
+}
+
+gen_mixed_type_data <- function(nn, z2_scenario, y_scenario, nsim) {
+  data_list <- vector(length = nsim, mode = "list")
+  for(i in 1:nsim) {
+    data_list[[i]] <- gen_mixed_type_data_one(nn, z2_scenario, y_scenario)
+  }
+  data_list
+}
+
+for (nn in c(50, 100, 200, 500)) {
+  for (z2_scenario in c(1, 2)) {
+    for (y_scenario in c("A", "B")) {
+      nsim <- 200
+      data_list <- gen_mixed_type_data(nn, z2_scenario, y_scenario, nsim)
+      save(data_list, file = paste("./data/hw3_mv_data_n_", nn, "_",
+                                     z2_scenario, y_scenario, "_nsim_",
+                                     nsim, ".RData", sep = ""))
+    }
+  }
+}
