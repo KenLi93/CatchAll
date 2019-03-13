@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1552435138056.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "70584C8C",
+    "lastKnownWriteTime" : 1551223266,
+    "last_content_update" : 1551223266,
+    "path" : "P:/git/CatchAll/R/three_mixed_exp.R",
+    "project_path" : "R/three_mixed_exp.R",
+    "properties" : {
+        "cursorPosition" : "43,75",
+        "scrollLine" : "0"
+    },
+    "relative_order" : 10,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

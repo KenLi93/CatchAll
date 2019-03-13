@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1552505767662.000,
+    "dirty" : true,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "6502C44D",
+    "lastKnownWriteTime" : 1552506824,
+    "last_content_update" : 1552506855628,
+    "path" : "P:/git/CatchAll/misc/report_sim.R",
+    "project_path" : "misc/report_sim.R",
+    "properties" : {
+        "cursorPosition" : "56,0",
+        "scrollLine" : "41",
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 8,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

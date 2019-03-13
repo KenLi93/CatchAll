@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1552424472486.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "45F8AF6E",
+    "lastKnownWriteTime" : 1552427739,
+    "last_content_update" : 1552427739690,
+    "path" : "P:/git/CatchAll/misc/poisson_sim.R",
+    "project_path" : "misc/poisson_sim.R",
+    "properties" : {
+        "cursorPosition" : "24,42",
+        "scrollLine" : "0",
+        "tempName" : "Untitled3"
+    },
+    "relative_order" : 13,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
